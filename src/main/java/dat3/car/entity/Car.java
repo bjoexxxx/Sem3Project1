@@ -2,6 +2,10 @@ package dat3.car.entity;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import java.time.LocalDateTime;
 
 @Entity
 @Builder
@@ -22,7 +26,8 @@ public class Car {
 
     }
 
-    public Car(Long id, String brand, String model, double pricePerDay, int bestDiscount){
+    public Car(Long id, String brand, String model, double pricePerDay, int bestDiscount,
+               LocalDateTime created, LocalDateTime updated){
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -69,5 +74,11 @@ public class Car {
     public Long getId() {
         return id;
     }
+
+    @CreationTimestamp
+    LocalDateTime created;
+
+    @UpdateTimestamp
+    LocalDateTime updated;
 
 }

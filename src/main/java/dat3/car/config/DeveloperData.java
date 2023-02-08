@@ -58,6 +58,18 @@ public class DeveloperData implements ApplicationRunner {
         ));
         carRepository.saveAll(newCars);
 
+
+        /*You can remove the following when we get to week2 if you like, they were only include to demonstrate
+    collections of basic type*/
+        Member demoMember = new Member("demo", "demo@a.dk", "test12",
+                "Demo", "Wonnegut", "Lyngbyvej 34", "Lyngby", "2800");
+        demoMember.setFavoriteCarColours(new ArrayList<>(Arrays.asList("blue","silver","black")));
+        Map<String,String> phoneNumbers = new HashMap<>();
+        phoneNumbers.put("private","12345");
+        phoneNumbers.put("work","54321");
+        demoMember.setPhones(phoneNumbers);
+        memberRepository.save(demoMember);
+
     }
     @Override
     public void run(ApplicationArguments args) throws Exception {
