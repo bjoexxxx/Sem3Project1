@@ -2,6 +2,8 @@ package dat3.car.entity;
 
 import jakarta.persistence.*;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -9,6 +11,8 @@ import java.time.LocalDateTime;
 
 @Entity
 @Builder
+@Getter
+@Setter
 public class Car {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,8 +30,7 @@ public class Car {
 
     }
 
-    public Car(Long id, String brand, String model, double pricePerDay, int bestDiscount,
-               LocalDateTime created, LocalDateTime updated){
+    public Car(Long id, String brand, String model, double pricePerDay, int bestDiscount){
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -35,50 +38,5 @@ public class Car {
         this.bestDiscount = bestDiscount;
 
     }
-
-    public String getBrand() {
-        return brand;
-    }
-
-    public void setBrand(String brand) {
-        this.brand = brand;
-    }
-
-    public String getModel() {
-        return model;
-    }
-
-    public void setModel(String model) {
-        this.model = model;
-    }
-
-    public double getPricePerDay() {
-        return pricePerDay;
-    }
-
-    public void setPricePerDay(double pricePerDay) {
-        this.pricePerDay = pricePerDay;
-    }
-
-    public int getBestDiscount() {
-        return bestDiscount;
-    }
-
-    public void setBestDiscount(int bestDiscount) {
-        this.bestDiscount = bestDiscount;
-    }
-    public void setId(Long id) {
-        this.id = id;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    @CreationTimestamp
-    LocalDateTime created;
-
-    @UpdateTimestamp
-    LocalDateTime updated;
 
 }

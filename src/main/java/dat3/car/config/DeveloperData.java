@@ -2,8 +2,8 @@ package dat3.car.config;
 
 import dat3.car.entity.Car;
 import dat3.car.entity.Member;
-import dat3.car.repository.CarRepository;
-import dat3.car.repository.MemberRepository;
+import dat3.car.repositories.CarRepository;
+import dat3.car.repositories.MemberRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Controller;
